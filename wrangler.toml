@@ -1,24 +1,17 @@
 name = "tellmedo-freemail"
-# name = "mail-exhibit"
 main = "src/server.js"
 compatibility_date = "2024-01-01"
-keep_vars=true
+keep_vars = true
 
-
-# D1 数据库绑定
 [[d1_databases]]
 binding = "TEMP_MAIL_DB"
-database_name = "mail_free_db" #你的d1数据库名称
-database_id = "3b167217-781e-4c79-ab34-5a59fb1e9385" # 你的database_id
-# Runtime variables are configured in the Cloudflare dashboard
-# 静态资源目录（Workers + Assets）
+database_name = "mail_free_db"
+database_id = "3b167217-781e-4c79-ab34-5a59fb1e9385"
+
 [assets]
 directory = "public"
-# 显式指定绑定名，确保在 Worker 中通过 env.ASSETS 可用
 binding = "ASSETS"
 
-
-
-
-# R2 存储桶绑定（用于保存完整 EML 内容）
 [[r2_buckets]]
+binding = "MAIL_EML"
+bucket_name = "mail-eml"
